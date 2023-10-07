@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using hiphipPizzaWangs2;
@@ -11,9 +12,10 @@ using hiphipPizzaWangs2;
 namespace hiphipPizzaWangs2.Migrations
 {
     [DbContext(typeof(hiphopPizzaWangs2DbContext))]
-    partial class hiphopPizzaWangs2DbContextModelSnapshot : ModelSnapshot
+    [Migration("20231007022639_2ndCreate")]
+    partial class _2ndCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -228,7 +230,7 @@ namespace hiphipPizzaWangs2.Migrations
                             Id = 23,
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!",
                             ItemName = "100p Wing Combo ",
-                            OrderId = 23,
+                            OrderId = 17,
                             Price = "85.99"
                         });
                 });

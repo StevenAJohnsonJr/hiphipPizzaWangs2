@@ -51,7 +51,7 @@ namespace hiphipPizzaWangs2
                 new Item { Id = 20, ItemName = "14p Wing Combo ", Price = "17.99", OrderId = 20, ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!" },
                 new Item { Id = 21, ItemName = "16p Wing Combo ", Price = "19.99", OrderId = 21, ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!" },
                 new Item { Id = 22, ItemName = "50p Wing Platter ", Price = "45.99", OrderId = 22, ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!" },
-                new Item { Id = 23, ItemName = "100p Wing Combo ", Price = "85.99", OrderId = 17, ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!" },            });
+                new Item { Id = 23, ItemName = "100p Wing Combo ", Price = "85.99", OrderId = 23, ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!" },            });
 
             modelBuilder.Entity<Order>().HasData(new Order[]
             {
