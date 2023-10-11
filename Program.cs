@@ -24,9 +24,24 @@ builder.Services.AddNpgsql<hiphopPizzaWangs2DbContext>(builder.Configuration["hi
 builder.Services.Configure<JsonOptions>(options =>
 {
     options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000",
+                                "http://localhost:5169")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+        });
 });
 
 var app = builder.Build();
+
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -39,12 +54,25 @@ app.UseHttpsRedirection();
 
 //Users
 
+app.MapGet("/checkuser/{uid}", (hiphopPizzaWangs2DbContext db, string uid) =>
+{
+    var user = db.Users.Where(x => x.Uid == uid).ToList();
+    if (uid == null)
+    {
+        return Results.NotFound();
+    }
+    else
+    {
+        return Results.Ok(user);
+    }
+});
+
 app.MapGet("/user", (hiphopPizzaWangs2DbContext db) =>
 {
     return db.Users.ToList();
 });
 
-app.MapGet("/user/{id}", (hiphopPizzaWangs2DbContext db, string id) =>
+app.MapGet("/user/{id}", (hiphopPizzaWangs2DbContext db, int id) =>
 {
     var user = db.Users.Where(u => u.Id == id);
     return user;
@@ -144,6 +172,12 @@ app.MapGet("/api/OrdersbyID/{id}", (hiphopPizzaWangs2DbContext db, int id) =>
 
 app.MapPost("api/order", async (hiphopPizzaWangs2DbContext db, Order order) =>
 {
+    foreach (var item in order.Item)
+    {
+        order.TotalRev += item.Price;
+    }
+
+    order.TotalRev += order.Tip;
     db.Orders.Add(order);
     db.SaveChanges();
     return Results.Created($"/api/Post{order.Id}", order);

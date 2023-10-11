@@ -268,8 +268,8 @@ namespace hiphipPizzaWangs2.Migrations
                     b.Property<string>("TotalRev")
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -387,8 +387,11 @@ namespace hiphipPizzaWangs2.Migrations
 
             modelBuilder.Entity("hiphopPizzaWangs2.Models.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -409,6 +412,10 @@ namespace hiphipPizzaWangs2.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Uid")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -416,48 +423,53 @@ namespace hiphipPizzaWangs2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ZjnYscBnyAOQCwSCi1NWLYjo6bs1",
+                            Id = 1,
                             Email = "jones@jones.com",
                             FirstName = "Trent",
                             LastName = "Jones",
                             OrderId = 1,
-                            PhoneNumber = "6157523654"
+                            PhoneNumber = "6157523654",
+                            Uid = "ZjnYscBnyAOQCwSCi1NWLYjo6bs1"
                         },
                         new
                         {
-                            Id = "UniqueUidForJohn",
+                            Id = 2,
                             Email = "jj123@nss.com",
                             FirstName = "John",
                             LastName = "James",
                             OrderId = 2,
-                            PhoneNumber = "6157548796"
+                            PhoneNumber = "6157548796",
+                            Uid = "UniqueUidForJohn"
                         },
                         new
                         {
-                            Id = "UniqueUidForSam",
+                            Id = 3,
                             Email = "stron234@makeit.com",
                             FirstName = "Sam",
                             LastName = "Tronset",
                             OrderId = 3,
-                            PhoneNumber = "8132547486"
+                            PhoneNumber = "8132547486",
+                            Uid = "UniqueUidForSam"
                         },
                         new
                         {
-                            Id = "UniqueUidForSusan",
+                            Id = 4,
                             Email = "helpfulsusan9541@chsarp.com",
                             FirstName = "Susan",
                             LastName = "McJohnny",
                             OrderId = 4,
-                            PhoneNumber = "2154526341"
+                            PhoneNumber = "2154526341",
+                            Uid = "UniqueUidForSusan"
                         },
                         new
                         {
-                            Id = "UniqueUidForBobby",
+                            Id = 5,
                             Email = "bobk1ngs@betdes.com",
                             FirstName = "Bobby",
                             LastName = "Castle",
                             OrderId = 5,
-                            PhoneNumber = "9872154897"
+                            PhoneNumber = "9872154897",
+                            Uid = "UniqueUidForBobby"
                         });
                 });
 

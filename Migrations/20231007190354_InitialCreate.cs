@@ -43,7 +43,9 @@ namespace hiphipPizzaWangs2.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Uid = table.Column<string>(type: "text", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
@@ -69,7 +71,7 @@ namespace hiphipPizzaWangs2.Migrations
                     TotalRev = table.Column<string>(type: "text", nullable: true),
                     Tip = table.Column<int>(type: "integer", nullable: true),
                     Like = table.Column<bool>(type: "boolean", nullable: true),
-                    UserId = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<int>(type: "integer", nullable: true),
                     PaymentId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
@@ -138,7 +140,7 @@ namespace hiphipPizzaWangs2.Migrations
                     { 20, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "14p Wing Combo ", 20, "17.99" },
                     { 21, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "16p Wing Combo ", 21, "19.99" },
                     { 22, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "50p Wing Platter ", 22, "45.99" },
-                    { 23, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "100p Wing Combo ", 17, "85.99" }
+                    { 23, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "100p Wing Combo ", 23, "85.99" }
                 });
 
             migrationBuilder.InsertData(
@@ -167,14 +169,14 @@ namespace hiphipPizzaWangs2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Email", "FirstName", "LastName", "OrderId", "PhoneNumber" },
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "OrderId", "PhoneNumber", "Uid" },
                 values: new object[,]
                 {
-                    { "UniqueUidForBobby", "bobk1ngs@betdes.com", "Bobby", "Castle", 5, "9872154897" },
-                    { "UniqueUidForJohn", "jj123@nss.com", "John", "James", 2, "6157548796" },
-                    { "UniqueUidForSam", "stron234@makeit.com", "Sam", "Tronset", 3, "8132547486" },
-                    { "UniqueUidForSusan", "helpfulsusan9541@chsarp.com", "Susan", "McJohnny", 4, "2154526341" },
-                    { "ZjnYscBnyAOQCwSCi1NWLYjo6bs1", "jones@jones.com", "Trent", "Jones", 1, "6157523654" }
+                    { 1, "jones@jones.com", "Trent", "Jones", 1, "6157523654", "ZjnYscBnyAOQCwSCi1NWLYjo6bs1" },
+                    { 2, "jj123@nss.com", "John", "James", 2, "6157548796", "UniqueUidForJohn" },
+                    { 3, "stron234@makeit.com", "Sam", "Tronset", 3, "8132547486", "UniqueUidForSam" },
+                    { 4, "helpfulsusan9541@chsarp.com", "Susan", "McJohnny", 4, "2154526341", "UniqueUidForSusan" },
+                    { 5, "bobk1ngs@betdes.com", "Bobby", "Castle", 5, "9872154897", "UniqueUidForBobby" }
                 });
 
             migrationBuilder.CreateIndex(
