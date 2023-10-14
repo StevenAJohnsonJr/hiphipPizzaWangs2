@@ -55,11 +55,11 @@ namespace hiphipPizzaWangs2
 
             modelBuilder.Entity<Order>().HasData(new Order[]
             {
-                new Order {Id = 1, OrderId = 15, OrderPrice = 11.99, CustomerName = "Hungry Mann", OrderDate = new DateTime(2023, 6, 28), OrderStatus = "Pending", Tip = 3, PaymentsId = 1, TotalRev = 20.99, Like = true  },
-                new Order {Id = 2, OrderId = 22, OrderPrice = 45.99, CustomerName = "Shorty Duwop", OrderDate = new DateTime(2023, 9, 08), OrderStatus = "Pending", Tip = 5, PaymentsId = 3, TotalRev = 90.99, Like = true  },
-                new Order {Id = 3, OrderId = 8, OrderPrice = 18.99, CustomerName = "Sherry Lovington", OrderDate = new DateTime(2023, 2, 14), OrderStatus = "In-Progress", Tip = 2, PaymentsId = 4, TotalRev = 20.99, Like = true  },
-                new Order {Id = 4, OrderId = 18, OrderPrice = 13.99, CustomerName = "Starving Joe", OrderDate = new DateTime(2023, 2, 23), OrderStatus = "Completed", Tip = 3, PaymentsId = 5, TotalRev = 16.99, Like = true  },
-                new Order {Id = 5, OrderId = 6, OrderPrice = 17.99, CustomerName = "Feed MeNow", OrderDate = new DateTime(2023, 10, 2), OrderStatus = "Pending", Tip = 3, PaymentsId = 2, TotalRev = 20.99, Like = true  },
+                new Order {Id = 1, OrderId = 15, OrderPrice = 11.99, CustomerName = "Hungry Mann", OrderDate = new DateTime(2023, 6, 28), OrderStatus = "Pending", Tip = 3, PaymentsId = 1, TotalRev = 20.99, Like = true, IsOpen = true },
+                new Order {Id = 2, OrderId = 22, OrderPrice = 45.99, CustomerName = "Shorty Duwop", OrderDate = new DateTime(2023, 9, 08), OrderStatus = "Pending", Tip = 5, PaymentsId = 3, TotalRev = 90.99, Like = true, IsOpen = false },
+                new Order {Id = 3, OrderId = 8, OrderPrice = 18.99, CustomerName = "Sherry Lovington", OrderDate = new DateTime(2023, 2, 14), OrderStatus = "In-Progress", Tip = 2, PaymentsId = 4, TotalRev = 20.99, Like = true, IsOpen = true },
+                new Order {Id = 4, OrderId = 18, OrderPrice = 13.99, CustomerName = "Starving Joe", OrderDate = new DateTime(2023, 2, 23), OrderStatus = "Completed", Tip = 3, PaymentsId = 5, TotalRev = 16.99, Like = true, IsOpen = false },
+                new Order {Id = 5, OrderId = 6, OrderPrice = 17.99, CustomerName = "Feed MeNow", OrderDate = new DateTime(2023, 10, 2), OrderStatus = "Pending", Tip = 3, PaymentsId = 2, TotalRev = 20.99, Like = true, IsOpen = true  },
             });
 
             modelBuilder.Entity<Payment>().HasData(new Payment[]

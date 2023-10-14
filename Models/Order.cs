@@ -16,9 +16,10 @@ namespace hiphipPizzaWangs2.Models
         public string OrderDateFormatted => OrderDate?.ToShortDateString();
         public string? OrderStatus { get; set; }
         public double? TotalRev { get; set; }
-        public double OrderPrice { get; set; }
+        public double? OrderPrice { get; set; }
         public double? Tip { get; set; }
         public bool? Like { get; set; }
+        public bool? IsOpen { get; set; }
         public List<Item>? Item { get; set; }
         public User? User { get; set; }
         public Payment? Payment { get; set; }

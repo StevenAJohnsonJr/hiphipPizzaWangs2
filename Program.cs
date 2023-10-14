@@ -198,6 +198,7 @@ app.MapPut("api/Order/{id}", async (hiphopPizzaWangs2DbContext db, int id, Order
     orderToUpdate.TotalRev = order.TotalRev;
     orderToUpdate.Tip = order.Tip;
     orderToUpdate.Like = order.Like;
+    orderToUpdate.OrderPrice = order.OrderPrice;
   
     db.SaveChanges();
     return Results.NoContent();
@@ -216,9 +217,33 @@ app.MapDelete("/api/order/{id}", (hiphopPizzaWangs2DbContext db, int id) =>
 
 });
 
+app.MapGet("/isOpen", (hiphopPizzaWangs2DbContext db) =>
+{
+    var openOrders = db.Orders.Where(x => x.IsOpen == false);
+    return openOrders.ToList();
+});
 
+// get closed orders 
+app.MapGet("/isclosedOrders", (hiphopPizzaWangs2DbContext db) =>
+{
+    var closedOrders = db.Orders.Where(s => s.IsOpen == true);
+    return closedOrders.ToList();
+});
 
+app.MapGet("/api/totalrevenue", (hiphopPizzaWangs2DbContext db) =>
+{
+    double totalRevenue = db.Orders.Sum(order => order.TotalRev ?? 0.0);
+    return Results.Ok(new { TotalRevenue = totalRevenue });
+});
 
+app.MapGet("/api/totalrevenueclosedorders", (hiphopPizzaWangs2DbContext db) =>
+{
+    double totalRevenueClosedOrders = db.Orders
+        .Where(order => order.IsOpen == false)
+        .Sum(order => order.TotalRev ?? 0.0);
+
+    return Results.Ok(new { TotalRevenueClosedOrders = totalRevenueClosedOrders });
+});
 
 
 app.Run();
