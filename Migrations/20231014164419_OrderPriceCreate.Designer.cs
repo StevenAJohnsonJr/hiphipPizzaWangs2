@@ -12,8 +12,8 @@ using hiphipPizzaWangs2;
 namespace hiphipPizzaWangs2.Migrations
 {
     [DbContext(typeof(hiphopPizzaWangs2DbContext))]
-    [Migration("20231007190354_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231014164419_OrderPriceCreate")]
+    partial class OrderPriceCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,8 +41,8 @@ namespace hiphipPizzaWangs2.Migrations
                     b.Property<int?>("OrderId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Price")
-                        .HasColumnType("text");
+                    b.Property<double?>("Price")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 
@@ -55,7 +55,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Choose any one topping to add to your already tasty pizza, and breadsticks on us!!",
                             ItemName = "Small 1 Topping Pizza",
                             OrderId = 1,
-                            Price = "10.99"
+                            Price = 10.99
                         },
                         new
                         {
@@ -63,7 +63,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Choose any two toppings to add to your already tasty pizza, and breadsticks on us!!",
                             ItemName = "Small 2 Topping Pizza",
                             OrderId = 2,
-                            Price = "13.99"
+                            Price = 13.99
                         },
                         new
                         {
@@ -71,7 +71,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Choose any one topping to add to your alreday tasty pizza, and breadsticks on us!!",
                             ItemName = "Medium 1 Topping Pizza",
                             OrderId = 3,
-                            Price = "12.99"
+                            Price = 12.99
                         },
                         new
                         {
@@ -79,7 +79,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Choose any two topping to add to your alreday tasty pizza, and breadsticks on us!!",
                             ItemName = "Medium 2 Topping Pizza",
                             OrderId = 4,
-                            Price = "15.99"
+                            Price = 15.99
                         },
                         new
                         {
@@ -87,7 +87,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Choose any one topping to add to your alreday tasty pizza, and breadsticks on us!!",
                             ItemName = "Large 1 Topping Pizza",
                             OrderId = 5,
-                            Price = "14.99"
+                            Price = 14.99
                         },
                         new
                         {
@@ -95,7 +95,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Choose any two topping to add to your alreday tasty pizza, and breadsticks on us!!",
                             ItemName = "Large 2 Topping Pizza",
                             OrderId = 6,
-                            Price = "17.99"
+                            Price = 17.989999999999998
                         },
                         new
                         {
@@ -103,7 +103,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Specialty pizzas are specally made from us to you.  So tell us what to put on it and we will put IT on you! Added bonus breadsticks on us!!",
                             ItemName = "Medium Specialty Pizza",
                             OrderId = 7,
-                            Price = "16.99"
+                            Price = 16.989999999999998
                         },
                         new
                         {
@@ -111,7 +111,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "Specialty pizzas are specally made from us to you.  So tell us what to put on it and we will put IT on you! Added bonus breadsticks on us!!",
                             ItemName = "Large Specialty Pizza",
                             OrderId = 8,
-                            Price = "18.99"
+                            Price = 18.989999999999998
                         },
                         new
                         {
@@ -119,7 +119,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "6p Wing ",
                             OrderId = 9,
-                            Price = "7.99"
+                            Price = 7.9900000000000002
                         },
                         new
                         {
@@ -127,7 +127,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "7p Wing ",
                             OrderId = 10,
-                            Price = "8.99"
+                            Price = 8.9900000000000002
                         },
                         new
                         {
@@ -135,7 +135,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "8p Wing ",
                             OrderId = 11,
-                            Price = "9.99"
+                            Price = 9.9900000000000002
                         },
                         new
                         {
@@ -143,7 +143,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "10p Wing ",
                             OrderId = 12,
-                            Price = "11.99"
+                            Price = 11.99
                         },
                         new
                         {
@@ -151,7 +151,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "12p Wing ",
                             OrderId = 13,
-                            Price = "13.99"
+                            Price = 13.99
                         },
                         new
                         {
@@ -159,7 +159,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "14p Wing ",
                             OrderId = 14,
-                            Price = "15.99"
+                            Price = 15.99
                         },
                         new
                         {
@@ -167,7 +167,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior!!",
                             ItemName = "16p Wing ",
                             OrderId = 15,
-                            Price = "17.99"
+                            Price = 17.989999999999998
                         },
                         new
                         {
@@ -175,7 +175,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!",
                             ItemName = "6p Wing Combo ",
                             OrderId = 16,
-                            Price = "10.99"
+                            Price = 10.99
                         },
                         new
                         {
@@ -183,7 +183,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!",
                             ItemName = "8p Wing Combo ",
                             OrderId = 17,
-                            Price = "11.99"
+                            Price = 11.99
                         },
                         new
                         {
@@ -191,7 +191,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!",
                             ItemName = "10p Wing Combo ",
                             OrderId = 18,
-                            Price = "13.99"
+                            Price = 13.99
                         },
                         new
                         {
@@ -199,7 +199,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!",
                             ItemName = "12p Wing Combo ",
                             OrderId = 19,
-                            Price = "13.99"
+                            Price = 13.99
                         },
                         new
                         {
@@ -207,7 +207,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!",
                             ItemName = "14p Wing Combo ",
                             OrderId = 20,
-                            Price = "17.99"
+                            Price = 17.989999999999998
                         },
                         new
                         {
@@ -215,7 +215,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!",
                             ItemName = "16p Wing Combo ",
                             OrderId = 21,
-                            Price = "19.99"
+                            Price = 19.989999999999998
                         },
                         new
                         {
@@ -223,7 +223,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!",
                             ItemName = "50p Wing Platter ",
                             OrderId = 22,
-                            Price = "45.99"
+                            Price = 45.990000000000002
                         },
                         new
                         {
@@ -231,7 +231,7 @@ namespace hiphipPizzaWangs2.Migrations
                             ItemDescription = "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!",
                             ItemName = "100p Wing Combo ",
                             OrderId = 23,
-                            Price = "85.99"
+                            Price = 85.989999999999995
                         });
                 });
 
@@ -255,6 +255,9 @@ namespace hiphipPizzaWangs2.Migrations
                     b.Property<int?>("OrderId")
                         .HasColumnType("integer");
 
+                    b.Property<double>("OrderPrice")
+                        .HasColumnType("double precision");
+
                     b.Property<string>("OrderStatus")
                         .HasColumnType("text");
 
@@ -264,11 +267,11 @@ namespace hiphipPizzaWangs2.Migrations
                     b.Property<int?>("PaymentsId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("Tip")
-                        .HasColumnType("integer");
+                    b.Property<double?>("Tip")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("TotalRev")
-                        .HasColumnType("text");
+                    b.Property<double?>("TotalRev")
+                        .HasColumnType("double precision");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("integer");
@@ -289,10 +292,11 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 15,
+                            OrderPrice = 11.99,
                             OrderStatus = "Pending",
                             PaymentsId = 1,
-                            Tip = 3,
-                            TotalRev = "2099"
+                            Tip = 3.0,
+                            TotalRev = 20.989999999999998
                         },
                         new
                         {
@@ -301,10 +305,11 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 22,
+                            OrderPrice = 45.990000000000002,
                             OrderStatus = "Pending",
                             PaymentsId = 3,
-                            Tip = 5,
-                            TotalRev = "9099"
+                            Tip = 5.0,
+                            TotalRev = 90.989999999999995
                         },
                         new
                         {
@@ -313,10 +318,11 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 8,
+                            OrderPrice = 18.989999999999998,
                             OrderStatus = "In-Progress",
                             PaymentsId = 4,
-                            Tip = 2,
-                            TotalRev = "2099"
+                            Tip = 2.0,
+                            TotalRev = 20.989999999999998
                         },
                         new
                         {
@@ -325,10 +331,11 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 18,
+                            OrderPrice = 13.99,
                             OrderStatus = "Completed",
                             PaymentsId = 5,
-                            Tip = 3,
-                            TotalRev = "1699"
+                            Tip = 3.0,
+                            TotalRev = 16.989999999999998
                         },
                         new
                         {
@@ -337,10 +344,11 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 6,
+                            OrderPrice = 17.989999999999998,
                             OrderStatus = "Pending",
                             PaymentsId = 2,
-                            Tip = 3,
-                            TotalRev = "2099"
+                            Tip = 3.0,
+                            TotalRev = 20.989999999999998
                         });
                 });
 

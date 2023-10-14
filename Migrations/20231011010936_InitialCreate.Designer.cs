@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using hiphipPizzaWangs2;
@@ -11,9 +12,10 @@ using hiphipPizzaWangs2;
 namespace hiphipPizzaWangs2.Migrations
 {
     [DbContext(typeof(hiphopPizzaWangs2DbContext))]
-    partial class hiphopPizzaWangs2DbContextModelSnapshot : ModelSnapshot
+    [Migration("20231011010936_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -253,9 +255,6 @@ namespace hiphipPizzaWangs2.Migrations
                     b.Property<int?>("OrderId")
                         .HasColumnType("integer");
 
-                    b.Property<double>("OrderPrice")
-                        .HasColumnType("double precision");
-
                     b.Property<string>("OrderStatus")
                         .HasColumnType("text");
 
@@ -290,7 +289,6 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 15,
-                            OrderPrice = 11.99,
                             OrderStatus = "Pending",
                             PaymentsId = 1,
                             Tip = 3.0,
@@ -303,11 +301,10 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 22,
-                            OrderPrice = 45.990000000000002,
                             OrderStatus = "Pending",
                             PaymentsId = 3,
                             Tip = 5.0,
-                            TotalRev = 90.989999999999995
+                            TotalRev = 9099.0
                         },
                         new
                         {
@@ -316,7 +313,6 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 8,
-                            OrderPrice = 18.989999999999998,
                             OrderStatus = "In-Progress",
                             PaymentsId = 4,
                             Tip = 2.0,
@@ -329,7 +325,6 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 18,
-                            OrderPrice = 13.99,
                             OrderStatus = "Completed",
                             PaymentsId = 5,
                             Tip = 3.0,
@@ -342,7 +337,6 @@ namespace hiphipPizzaWangs2.Migrations
                             Like = true,
                             OrderDate = new DateTime(2023, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 6,
-                            OrderPrice = 17.989999999999998,
                             OrderStatus = "Pending",
                             PaymentsId = 2,
                             Tip = 3.0,

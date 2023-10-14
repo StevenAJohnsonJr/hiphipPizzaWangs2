@@ -164,7 +164,7 @@ app.MapGet("/order", (hiphopPizzaWangs2DbContext db) =>
 
 app.MapGet("/api/OrdersbyID/{id}", (hiphopPizzaWangs2DbContext db, int id) =>
 {
-    var order = db.Orders.Where(s => s.Id == id);
+    var order = db.Orders.SingleOrDefaultAsync(s => s.Id == id);
 
     return order;
 }

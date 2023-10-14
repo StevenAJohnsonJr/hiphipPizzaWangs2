@@ -18,7 +18,7 @@ namespace hiphipPizzaWangs2.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ItemName = table.Column<string>(type: "text", nullable: true),
                     ItemDescription = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<string>(type: "text", nullable: true),
+                    Price = table.Column<double>(type: "double precision", nullable: true),
                     OrderId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
@@ -68,8 +68,8 @@ namespace hiphipPizzaWangs2.Migrations
                     PaymentsId = table.Column<int>(type: "integer", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     OrderStatus = table.Column<string>(type: "text", nullable: true),
-                    TotalRev = table.Column<string>(type: "text", nullable: true),
-                    Tip = table.Column<int>(type: "integer", nullable: true),
+                    TotalRev = table.Column<double>(type: "double precision", nullable: true),
+                    Tip = table.Column<double>(type: "double precision", nullable: true),
                     Like = table.Column<bool>(type: "boolean", nullable: true),
                     UserId = table.Column<int>(type: "integer", nullable: true),
                     PaymentId = table.Column<int>(type: "integer", nullable: true)
@@ -118,29 +118,29 @@ namespace hiphipPizzaWangs2.Migrations
                 columns: new[] { "Id", "ItemDescription", "ItemName", "OrderId", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Choose any one topping to add to your already tasty pizza, and breadsticks on us!!", "Small 1 Topping Pizza", 1, "10.99" },
-                    { 2, "Choose any two toppings to add to your already tasty pizza, and breadsticks on us!!", "Small 2 Topping Pizza", 2, "13.99" },
-                    { 3, "Choose any one topping to add to your alreday tasty pizza, and breadsticks on us!!", "Medium 1 Topping Pizza", 3, "12.99" },
-                    { 4, "Choose any two topping to add to your alreday tasty pizza, and breadsticks on us!!", "Medium 2 Topping Pizza", 4, "15.99" },
-                    { 5, "Choose any one topping to add to your alreday tasty pizza, and breadsticks on us!!", "Large 1 Topping Pizza", 5, "14.99" },
-                    { 6, "Choose any two topping to add to your alreday tasty pizza, and breadsticks on us!!", "Large 2 Topping Pizza", 6, "17.99" },
-                    { 7, "Specialty pizzas are specally made from us to you.  So tell us what to put on it and we will put IT on you! Added bonus breadsticks on us!!", "Medium Specialty Pizza", 7, "16.99" },
-                    { 8, "Specialty pizzas are specally made from us to you.  So tell us what to put on it and we will put IT on you! Added bonus breadsticks on us!!", "Large Specialty Pizza", 8, "18.99" },
-                    { 9, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "6p Wing ", 9, "7.99" },
-                    { 10, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "7p Wing ", 10, "8.99" },
-                    { 11, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "8p Wing ", 11, "9.99" },
-                    { 12, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "10p Wing ", 12, "11.99" },
-                    { 13, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "12p Wing ", 13, "13.99" },
-                    { 14, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "14p Wing ", 14, "15.99" },
-                    { 15, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "16p Wing ", 15, "17.99" },
-                    { 16, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "6p Wing Combo ", 16, "10.99" },
-                    { 17, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "8p Wing Combo ", 17, "11.99" },
-                    { 18, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "10p Wing Combo ", 18, "13.99" },
-                    { 19, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "12p Wing Combo ", 19, "13.99" },
-                    { 20, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "14p Wing Combo ", 20, "17.99" },
-                    { 21, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "16p Wing Combo ", 21, "19.99" },
-                    { 22, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "50p Wing Platter ", 22, "45.99" },
-                    { 23, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "100p Wing Combo ", 23, "85.99" }
+                    { 1, "Choose any one topping to add to your already tasty pizza, and breadsticks on us!!", "Small 1 Topping Pizza", 1, 10.99 },
+                    { 2, "Choose any two toppings to add to your already tasty pizza, and breadsticks on us!!", "Small 2 Topping Pizza", 2, 13.99 },
+                    { 3, "Choose any one topping to add to your alreday tasty pizza, and breadsticks on us!!", "Medium 1 Topping Pizza", 3, 12.99 },
+                    { 4, "Choose any two topping to add to your alreday tasty pizza, and breadsticks on us!!", "Medium 2 Topping Pizza", 4, 15.99 },
+                    { 5, "Choose any one topping to add to your alreday tasty pizza, and breadsticks on us!!", "Large 1 Topping Pizza", 5, 14.99 },
+                    { 6, "Choose any two topping to add to your alreday tasty pizza, and breadsticks on us!!", "Large 2 Topping Pizza", 6, 17.989999999999998 },
+                    { 7, "Specialty pizzas are specally made from us to you.  So tell us what to put on it and we will put IT on you! Added bonus breadsticks on us!!", "Medium Specialty Pizza", 7, 16.989999999999998 },
+                    { 8, "Specialty pizzas are specally made from us to you.  So tell us what to put on it and we will put IT on you! Added bonus breadsticks on us!!", "Large Specialty Pizza", 8, 18.989999999999998 },
+                    { 9, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "6p Wing ", 9, 7.9900000000000002 },
+                    { 10, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "7p Wing ", 10, 8.9900000000000002 },
+                    { 11, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "8p Wing ", 11, 9.9900000000000002 },
+                    { 12, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "10p Wing ", 12, 11.99 },
+                    { 13, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "12p Wing ", 13, 13.99 },
+                    { 14, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "14p Wing ", 14, 15.99 },
+                    { 15, "World class and world famous wings. Choose a flavor and monitor your behavior!!", "16p Wing ", 15, 17.989999999999998 },
+                    { 16, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "6p Wing Combo ", 16, 10.99 },
+                    { 17, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "8p Wing Combo ", 17, 11.99 },
+                    { 18, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "10p Wing Combo ", 18, 13.99 },
+                    { 19, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "12p Wing Combo ", 19, 13.99 },
+                    { 20, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "14p Wing Combo ", 20, 17.989999999999998 },
+                    { 21, "World class and world famous wings. Choose a flavor and monitor your behavior.  But this time we add homecut fries for you to savor!!", "16p Wing Combo ", 21, 19.989999999999998 },
+                    { 22, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "50p Wing Platter ", 22, 45.990000000000002 },
+                    { 23, "World class and world famous wings. Choose a flavor and monitor your behavior.  Platter dont matter!!", "100p Wing Combo ", 23, 85.989999999999995 }
                 });
 
             migrationBuilder.InsertData(
@@ -148,11 +148,11 @@ namespace hiphipPizzaWangs2.Migrations
                 columns: new[] { "Id", "CustomerName", "Like", "OrderDate", "OrderId", "OrderStatus", "PaymentId", "PaymentsId", "Tip", "TotalRev", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "Hungry Mann", true, new DateTime(2023, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 15, "Pending", null, 1, 3, "2099", null },
-                    { 2, "Shorty Duwop", true, new DateTime(2023, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), 22, "Pending", null, 3, 5, "9099", null },
-                    { 3, "Sherry Lovington", true, new DateTime(2023, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, "In-Progress", null, 4, 2, "2099", null },
-                    { 4, "Starving Joe", true, new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 18, "Completed", null, 5, 3, "1699", null },
-                    { 5, "Feed MeNow", true, new DateTime(2023, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "Pending", null, 2, 3, "2099", null }
+                    { 1, "Hungry Mann", true, new DateTime(2023, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 15, "Pending", null, 1, 3.0, 20.989999999999998, null },
+                    { 2, "Shorty Duwop", true, new DateTime(2023, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), 22, "Pending", null, 3, 5.0, 9099.0, null },
+                    { 3, "Sherry Lovington", true, new DateTime(2023, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, "In-Progress", null, 4, 2.0, 20.989999999999998, null },
+                    { 4, "Starving Joe", true, new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 18, "Completed", null, 5, 3.0, 16.989999999999998, null },
+                    { 5, "Feed MeNow", true, new DateTime(2023, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "Pending", null, 2, 3.0, 20.989999999999998, null }
                 });
 
             migrationBuilder.InsertData(
